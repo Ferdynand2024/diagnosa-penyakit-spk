@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import pickle
 
+st.image("dokter.png", width=200)
+
 # Load model + encoders
 data = pickle.load(open("model.pkl", "rb"))
 model = data["model"]
@@ -46,3 +48,4 @@ if st.button("Diagnosa"):
     disease = encoders["Disease"].inverse_transform([pred])[0]
 
     st.success(f"Hasil Prediksi Penyakit: **{disease}**")
+
